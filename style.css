@@ -17,14 +17,19 @@ video {
 }
 
 /* startup box */
-.start-container {
+.start-box {
   display: flex;
+
   flex-direction: column;
   align-items: center;
   backdrop-filter: blur(5px);
   border: 2px solid hsl(0, 100%, 50%);
   border-radius: 0.5rem;
   animation: rainbow 25s infinite alternate;
+}
+.games {
+  display: flex;
+  flex-direction: row;
 }
 @keyframes rainbow {
   0% {
@@ -53,16 +58,8 @@ video {
   }
 }
 
-.start-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .start-title {
-  font-size: 5rem;
+  font-size: 3rem;
   font-family: "Reggae One", cursive;
   color: red;
   padding: 0.5em 1em;
@@ -171,4 +168,82 @@ video {
 .start-btn {
   font-size: 1.5rem;
   margin-right: 1rem;
+}
+
+/* game */
+.game-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  flex-wrap: wrap;
+}
+.game-box i {
+  font-size: 3rem;
+  z-index: 2;
+}
+.game-container .game-box {
+  position: relative;
+  flex-direction: column;
+  width: 220px;
+  height: 320px;
+  background-color: black;
+  color: wheat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 30px;
+  transition: 0.5s;
+}
+
+.game-container .game-box::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg, #8b008b, #00008b);
+}
+.game-container .game-box::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg, #8b008b, #00008b);
+  filter: blur(30px);
+}
+.game-container .game-box span {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background: black;
+}
+
+.game-container .game-box .content {
+  position: relative;
+  z-index: 10;
+  padding: 20px 20px;
+}
+
+.game-container .game-box:hover {
+  transform: translateY(-20px);
+}
+@media only screen and (max-width: 700px) {
+  .start-title {
+    display: none;
+  }
+  .games {
+    display: flex;
+    flex-direction: row;
+  }
+  .game-container .game-box {
+    width: 220px;
+    height: 320px;
+  }
 }
