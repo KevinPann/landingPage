@@ -246,4 +246,7 @@ video {
     width: 220px;
     height: 320px;
   }
+  .video {
+    display: none;
+  }
 }
